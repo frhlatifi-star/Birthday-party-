@@ -1,75 +1,105 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🎉 دعوت‌نامه تولد آرمان کوچولو</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🎉 Farid's Birthday Party Invitation</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
     body {
-      font-family: 'Tahoma', sans-serif;
-      background: linear-gradient(to bottom, #cceeff, #e6f7ff);
+      font-family: 'Baloo 2', Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #ffe6e6, #fff0f5);
       text-align: center;
       padding: 50px;
-      direction: rtl;
       overflow-x: hidden;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #ff6600;
-      margin-bottom: 40px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-      animation: fadeInTitle 1.5s ease forwards;
+      font-size: 3rem;
+      color: #ff3366;
+      margin-bottom: 50px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      animation: fadeInTitle 1.5s ease forwards, bounce 2s infinite;
     }
 
     @keyframes fadeInTitle {
-      from {opacity: 0; transform: translateY(-20px);}
+      from {opacity: 0; transform: translateY(-30px);}
       to {opacity: 1; transform: translateY(0);}
     }
 
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+    }
+
     .envelope {
-      width: 320px;
-      height: 200px;
-      background: linear-gradient(135deg, #3399ff, #66ccff);
+      width: 350px;
+      height: 220px;
+      background: linear-gradient(135deg, #ff6699, #ff99cc);
       margin: auto;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: bold;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .envelope::before {
+      content: '✉️';
+      position: absolute;
+      font-size: 3rem;
+      top: 10px;
+      left: 15px;
+      animation: floatEmoji 3s ease-in-out infinite;
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
     }
 
     .envelope:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      transform: translateY(-15px) scale(1.1) rotate(-2deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #ff33aa, #ff66cc);
     }
 
     .card {
       display: none;
-      background-color: #ffffff;
-      padding: 35px;
+      background: radial-gradient(circle at top, #fff0f5, #ffe6e6);
+      padding: 40px;
       border-radius: 25px;
       margin-top: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
       animation: fadeInCard 1s ease forwards;
-      max-width: 700px;
+      max-width: 750px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      overflow: hidden;
     }
 
     @keyframes fadeInCard {
-      from {opacity: 0; transform: scale(0.95);}
+      from {opacity: 0; transform: scale(0.9);}
       to {opacity: 1; transform: scale(1);}
     }
 
     .card h2 {
-      color: #ff6600;
+      color: #ff3366;
       margin-bottom: 20px;
+      animation: fadeInText 1s ease forwards;
+    }
+
+    @keyframes fadeInText {
+      from {opacity: 0; transform: translateX(-20px);}
+      to {opacity: 1; transform: translateX(0);}
     }
 
     .images {
@@ -80,21 +110,29 @@
     }
 
     .images img {
-      width: 120px;
+      width: 130px;
       margin: 10px;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
+      border-radius: 20px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .images img:hover {
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.2) rotate(10deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     #countdown {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
-      margin: 15px 0;
-      color: #3399ff;
+      margin: 20px 0;
+      color: #ff3366;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);}
+      50% { transform: scale(1.1);}
     }
 
     form {
@@ -102,81 +140,107 @@
     }
 
     input {
-      padding: 12px;
+      padding: 14px;
       margin: 5px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      border-radius: 10px;
+      border: 2px solid #ff99cc;
       font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff3366;
     }
 
     button {
-      padding: 12px 25px;
-      background-color: #3399ff;
+      padding: 14px 30px;
+      background-color: #ff3366;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     button:hover {
-      background-color: #007acc;
-      transform: scale(1.05);
+      background-color: #ff66cc;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     a {
-      color: #ff6600;
+      color: #ff3366;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     a:hover {
+      color: #ff66cc;
       text-decoration: underline;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: #ff3366;
+      top: 0;
+      animation: fall 3s linear infinite;
+      z-index: 1000;
+      border-radius: 50%;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>🎉 دعوت‌نامه تولد آرمان کوچولو</h1>
+  <h1>🎉 Farid's Birthday Party!</h1>
 
   <div class="envelope" onclick="openCard()">
-    <p>برای باز کردن پاکت کلیک کن ✉️</p>
+    <p>Click to open the envelope ✉️</p>
   </div>
 
   <div class="card" id="card">
-    <h2>سلام دوست عزیز! 🤖</h2>
-    <p>با کلی هیجان ازت دعوت می‌کنیم که در جشن تولد <strong>آرمان کوچولو</strong> شرکت کنی!</p>
-    <p><strong>تاریخ:</strong> ۴ شهریور ۱۴۰۴</p>
-    <p><strong>زمان:</strong> ساعت ۵ عصر</p>
-    <p><strong>مکان:</strong> تهران، خیابان آزادی، پلاک ۱۲۳</p>
+    <h2>Hello, friend! 🤖</h2>
+    <p>We are super excited to invite you to celebrate <strong>Farid's Birthday!</strong></p>
+    <p><strong>Date:</strong> August 26, 2025</p>
+    <p><strong>Time:</strong> 5:00 PM</p>
+    <p><strong>Location:</strong> Tehran, Azadi Street, No. 123</p>
 
     <div class="images">
-      <img src="assets/robot.png.PNG" alt="robot" width="120">
-<img src="assets/dino.png" alt="dino" width="120">
-<img src="assets/car.png" alt="car" width="120">
-
+      <img src="assets/robot.png.PNG" alt="robot">
+      <img src="assets/dino.png" alt="dino">
+      <img src="assets/car.png" alt="car">
     </div>
 
     <div id="countdown"></div>
 
     <form id="rsvpForm">
-      <h3>فرم تأیید حضور ✅</h3>
-      <input type="text" placeholder="نام شما" required>
-      <input type="number" placeholder="تعداد همراهان" min="1" max="5" required>
-      <button type="submit">ثبت حضور</button>
+      <h3>RSVP ✅</h3>
+      <input type="text" placeholder="Your Name" required>
+      <input type="number" placeholder="Number of Guests" min="1" max="5" required>
+      <button type="submit">Submit</button>
     </form>
 
-    <p>تعداد مهمان‌های تأییدشده: <span id="guestCount">0</span></p>
+    <p>Confirmed guests: <span id="guestCount">0</span></p>
 
-    <p>📍 <a href="https://goo.gl/maps/XxXxXxXxXxXx" target="_blank">مشاهده آدرس روی نقشه</a></p>
+    <p>📍 <a href="https://goo.gl/maps/XxXxXxXxXxXx" target="_blank">See the location on Google Maps</a></p>
   </div>
 
-  <script src="script.js"></script>
   <script>
     function openCard() {
       document.getElementById('card').style.display = 'block';
       startCountdown();
+      createConfetti();
     }
 
     function startCountdown() {
@@ -189,7 +253,7 @@
 
         if (distance < 0) {
           clearInterval(interval);
-          countdown.innerHTML = "🎉 تولد شروع شد!";
+          countdown.innerHTML = "🎉 The party has started!";
           return;
         }
 
@@ -198,7 +262,7 @@
         const minutes = Math.floor((distance / (1000 * 60)) % 60);
         const seconds = Math.floor((distance / 1000) % 60);
 
-        countdown.innerHTML = `⏳ ${days} روز، ${hours} ساعت، ${minutes} دقیقه، ${seconds} ثانیه تا تولد`;
+        countdown.innerHTML = `⏳ ${days}d, ${hours}h, ${minutes}m, ${seconds}s until the party`;
       }, 1000);
     }
 
@@ -207,8 +271,21 @@
       e.preventDefault();
       guestCount++;
       document.getElementById('guestCount').innerText = guestCount;
-      alert("حضور شما ثبت شد! 🎈");
+      alert("Your attendance has been recorded! 🎈");
     });
+
+    function createConfetti() {
+      for(let i=0; i<50; i++){
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
   </script>
+
 </body>
 </html>
