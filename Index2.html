@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Farid's Birthday Party Invitation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+    body {
+      font-family: 'Baloo 2', Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #ffe6e6, #fff0f5);
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff3366;
+      margin-bottom: 50px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      animation: fadeInTitle 1.5s ease forwards, bounce 2s infinite;
+    }
+
+    @keyframes fadeInTitle {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+    }
+
+    .envelope {
+      width: 350px;
+      height: 220px;
+      background: linear-gradient(135deg, #ff6699, #ff99cc);
+      margin: auto;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .envelope::before {
+      content: '✉️';
+      position: absolute;
+      font-size: 3rem;
+      top: 10px;
+      left: 15px;
+      animation: floatEmoji 3s ease-in-out infinite;
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+    }
+
+    .envelope:hover {
+      transform: translateY(-15px) scale(1.1) rotate(-2deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #ff33aa, #ff66cc);
+    }
+
+    .card {
+      display: none;
+      background: radial-gradient(circle at top, #fff0f5, #ffe6e6);
+      padding: 40px;
+      border-radius: 25px;
+      margin-top: 30px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      animation: fadeInCard 1s ease forwards;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes fadeInCard {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .card h2 {
+      color: #ff3366;
+      margin-bottom: 20px;
+      animation: fadeInText 1s ease forwards;
+    }
+
+    @keyframes fadeInText {
+      from {opacity: 0; transform: translateX(-20px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .images img {
+      width: 130px;
+      margin: 10px;
+      border-radius: 20px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .images img:hover {
+      transform: scale(1.2) rotate(10deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    #countdown {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #ff3366;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);}
+      50% { transform: scale(1.1);}
+    }
+
+    form {
+      margin-top: 25px;
+    }
+
+    input {
+      padding: 14px;
+      margin: 5px;
+      border-radius: 10px;
+      border: 2px solid #ff99cc;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff3366;
+    }
+
+    button {
+      padding: 14px 30px;
+      background-color: #ff3366;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff66cc;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    a {
+      color: #ff3366;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff66cc;
+      text-decoration: underline;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: #ff3366;
+      top: 0;
+      animation: fall 3s linear infinite;
+      z-index: 1000;
+      border-radius: 50%;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Farid's Birthday Party!</h1>
+
+  <div class="envelope" onclick="openCard()">
+    <p>Click to open the envelope ✉️</p>
+  </div>
+
+  <div class="card" id="card">
+    <h2>Hello, friend! 🤖</h2>
+    <p>We are super excited to invite you to celebrate <strong>Farid's Birthday!</strong></p>
+    <p><strong>Date:</strong> August 26, 2025</p>
+    <p><strong>Time:</strong> 5:00 PM</p>
+    <p><strong>Location:</strong> Tehran, Azadi Street, No. 123</p>
+
+    <div class="images">
+      <img src="assets/robot.png.PNG" alt="robot">
+      <img src="assets/dino.png" alt="dino">
+      <img src="assets/car.png" alt="car">
+    </div>
+
+    <div id="countdown"></div>
+
+    <form id="rsvpForm">
+      <h3>RSVP ✅</h3>
+      <input type="text" placeholder="Your Name" required>
+      <input type="number" placeholder="Number of Guests" min="1" max="5" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Confirmed guests: <span id="guestCount">0</span></p>
+
+    <p>📍 <a href="https://goo.gl/maps/XxXxXxXxXxXx" target="_blank">See the location on Google Maps</a></p>
+  </div>
+
+  <script>
+    function openCard() {
+      document.getElementById('card').style.display = 'block';
+      startCountdown();
+      createConfetti();
+    }
+
+    function startCountdown() {
+      const countdown = document.getElementById('countdown');
+      const eventDate = new Date("2025-08-26T17:00:00").getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          countdown.innerHTML = "🎉 The party has started!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdown.innerHTML = `⏳ ${days}d, ${hours}h, ${minutes}m, ${seconds}s until the party`;
+      }, 1000);
+    }
+
+    let guestCount = 0;
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      guestCount++;
+      document.getElementById('guestCount').innerText = guestCount;
+      alert("Your attendance has been recorded! 🎈");
+    });
+
+    function createConfetti() {
+      for(let i=0; i<50; i++){
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
