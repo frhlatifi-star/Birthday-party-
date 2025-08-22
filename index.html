@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>دعوت‌نامه تولد آرمان کوچولو</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎉 دعوت‌نامه تولد آرمان کوچولو</h1>
+
+  <div class="envelope" onclick="openCard()">
+    <p>برای باز کردن پاکت کلیک کن ✉️</p>
+  </div>
+
+  <div class="card" id="card">
+    <h2>سلام دوست عزیز! 🤖</h2>
+    <p>با کلی هیجان ازت دعوت می‌کنیم که در جشن تولد <strong>آرمان کوچولو</strong> شرکت کنی!</p>
+    <p><strong>تاریخ:</strong> ۴ شهریور ۱۴۰۴</p>
+    <p><strong>زمان:</strong> ساعت ۵ عصر</p>
+    <p><strong>مکان:</strong> تهران، خیابان آزادی، پلاک ۱۲۳</p>
+
+    <div class="images">
+      <img src="images/robot.png" alt="ربات">
+      <img src="images/dino.png" alt="دایناسور">
+      <img src="images/car.png" alt="ماشین">
+    </div>
+
+    <div id="countdown"></div>
+
+    <form id="rsvpForm">
+      <h3>فرم تأیید حضور ✅</h3>
+      <input type="text" placeholder="نام شما" required>
+      <input type="number" placeholder="تعداد همراهان" min="1" max="5" required>
+      <button type="submit">ثبت حضور</button>
+    </form>
+
+    <p>تعداد مهمان‌های تأییدشده: <span id="guestCount">0</span></p>
+
+    <p>📍 <a href="https://goo.gl/maps/XxXxXxXxXxXx" target="_blank">مشاهده آدرس روی نقشه</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

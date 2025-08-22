@@ -1,0 +1,71 @@
+body {
+  font-family: 'Tahoma', sans-serif;
+  background: linear-gradient(to bottom, #cceeff, #e6f7ff);
+  text-align: center;
+  padding: 50px;
+  direction: rtl;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  background-color: #3399ff;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.card {
+  display: none;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.images img {
+  width: 100px;
+  margin: 10px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3399ff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007acc;
+}
