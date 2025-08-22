@@ -2,10 +2,142 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>دعوت‌نامه تولد آرمان کوچولو</title>
+  <title>🎉 دعوت‌نامه تولد آرمان کوچولو</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background: linear-gradient(to bottom, #cceeff, #e6f7ff);
+      text-align: center;
+      padding: 50px;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff6600;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+      animation: fadeInTitle 1.5s ease forwards;
+    }
+
+    @keyframes fadeInTitle {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .envelope {
+      width: 320px;
+      height: 200px;
+      background: linear-gradient(135deg, #3399ff, #66ccff);
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .envelope:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .card {
+      display: none;
+      background-color: #ffffff;
+      padding: 35px;
+      border-radius: 25px;
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeInCard 1s ease forwards;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes fadeInCard {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .card h2 {
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .images img {
+      width: 120px;
+      margin: 10px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .images img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    #countdown {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #3399ff;
+    }
+
+    form {
+      margin-top: 25px;
+    }
+
+    input {
+      padding: 12px;
+      margin: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #3399ff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #007acc;
+      transform: scale(1.05);
+    }
+
+    a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+
   <h1>🎉 دعوت‌نامه تولد آرمان کوچولو</h1>
 
   <div class="envelope" onclick="openCard()">
@@ -20,9 +152,9 @@
     <p><strong>مکان:</strong> تهران، خیابان آزادی، پلاک ۱۲۳</p>
 
     <div class="images">
-      <img src="images/robot.png.PNG" alt="ربات">
-      <img src="images/dino.png.PNG" alt="دایناسور">
-      <img src="images/car.png.PNG" alt="ماشین">
+      <img src="robot.png" alt="ربات">
+      <img src="dino.png" alt="دایناسور">
+      <img src="car.png" alt="ماشین">
     </div>
 
     <div id="countdown"></div>
@@ -40,5 +172,42 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    function openCard() {
+      document.getElementById('card').style.display = 'block';
+      startCountdown();
+    }
+
+    function startCountdown() {
+      const countdown = document.getElementById('countdown');
+      const eventDate = new Date("2025-08-26T17:00:00").getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          countdown.innerHTML = "🎉 تولد شروع شد!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdown.innerHTML = `⏳ ${days} روز، ${hours} ساعت، ${minutes} دقیقه، ${seconds} ثانیه تا تولد`;
+      }, 1000);
+    }
+
+    let guestCount = 0;
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      guestCount++;
+      document.getElementById('guestCount').innerText = guestCount;
+      alert("حضور شما ثبت شد! 🎈");
+    });
+  </script>
 </body>
 </html>
